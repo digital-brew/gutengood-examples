@@ -167,5 +167,3 @@ You don't need block js for register for the editor. But if needed you can set $
 public bool $editor_script = true;
 ```
 Then add your custom jsx. [Example](https://github.com/yarovikov/gutengood-examples/blob/master/resources/scripts/editor/blocks/container.block.js) 
-}
-```
