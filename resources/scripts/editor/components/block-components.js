@@ -9,11 +9,17 @@ import {
   BaseControl,
   RangeControl,
 } from '@wordpress/components';
-import {MediaUpload, MediaUploadCheck, RichText} from '@wordpress/block-editor';
+import {
+  MediaUpload,
+  MediaUploadCheck,
+  RichText,
+  __experimentalLinkControl as LinkControl,
+} from '@wordpress/block-editor';
 import {useState, useEffect} from '@wordpress/element';
 import {ImagePreview} from "@scripts/editor/components/image-preview";
 import {File} from "@scripts/editor/components/file";
 import {SortableList} from "@scripts/editor/components/sortable-list";
+import '../../../styles/editor/gutengood.css';
 
 export default function BlockComponents({attributes, components, onChange, props, item = null, id = null}) {
 
@@ -194,6 +200,21 @@ export default function BlockComponents({attributes, components, onChange, props
             </MediaUploadCheck>
           </BaseControl>
         );
+      case 'Link':
+        return (
+          <BaseControl
+            key={component.name}
+            label={component.label}
+          >
+            <LinkControl
+              searchInputPlaceholder="Search..."
+              value={item ? item[component.name] : attributes[component.name]}
+              onChange={(value) => onChange(id, component.name, value)}
+              hasTextControl
+              onRemove={() => onChange(id, component.name, {})}
+            />
+          </BaseControl>
+        );
       case 'Range':
         return (
           <RangeControl
@@ -210,18 +231,18 @@ export default function BlockComponents({attributes, components, onChange, props
       case 'RichText':
         return (
           <BaseControl
-          key={component.name}
-          label={component.label}
-          help={component.help}
-        >
-          <RichText
             key={component.name}
             label={component.label}
-            value={item ? item[component.name] : attributes[component.name]}
-            onChange={(value) => onChange(id, component.name, value)}
-            placeholder={component.placeholder ?? '...'}
-          />
-        </BaseControl>
+            help={component.help}
+          >
+            <RichText
+              key={component.name}
+              label={component.label}
+              value={item ? item[component.name] : attributes[component.name]}
+              onChange={(value) => onChange(id, component.name, value)}
+              placeholder={component.placeholder ?? '...'}
+            />
+          </BaseControl>
         );
       case 'Message':
         return (
@@ -238,12 +259,12 @@ export default function BlockComponents({attributes, components, onChange, props
             label={component.label}
             help={component.help}
           >
-          <SortableList
-            key={component.name}
-            componentName={component.name}
-            fields={component.fields}
-            props={{ ...props, buttonLabel: component.button_label || 'Add' }}
-          />
+            <SortableList
+              key={component.name}
+              componentName={component.name}
+              fields={component.fields}
+              props={{...props, buttonLabel: component.button_label || 'Add'}}
+            />
           </BaseControl>
         );
       default:
