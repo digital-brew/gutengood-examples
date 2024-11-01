@@ -30,6 +30,8 @@ add_action('enqueue_block_editor_assets', function (): void {
 - Range
 - RichText
 - Image
+- Link
+- Message (just some title with text)
 - Repeater (based on @dnd-kit)
 
 Check php part block examples here https://github.com/yarovikov/gutengood-examples/tree/master/app/Editor/Blocks.
@@ -165,14 +167,5 @@ You don't need block js for register for the editor. But if needed you can set $
 public bool $editor_script = true;
 ```
 Then add your custom jsx. [Example](https://github.com/yarovikov/gutengood-examples/blob/master/resources/scripts/editor/blocks/container.block.js) 
-
----
-
-Also you can add this code to your editor.css to avoid redundant margins in the options sidebar
-```css
-.block-editor-block-inspector {
-  .components-base-control {
-    @apply !mb-0;
-  }
 }
 ```
