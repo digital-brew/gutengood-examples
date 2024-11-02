@@ -205,6 +205,7 @@ export default function BlockComponents({attributes, components, onChange, props
           <BaseControl
             key={component.name}
             label={component.label}
+            help={component.help}
           >
             <LinkControl
               searchInputPlaceholder="Search..."
