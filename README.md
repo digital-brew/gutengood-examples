@@ -8,9 +8,14 @@
 composer require yarovikov/gutengood
 ```
 
-2. Place files from this repo in your Sage theme folder. Check and add yarn dependencies to build editor gutengood block components.
-3. Run ```yarn```, then ```yarn build```
-4. Enqueue editor assets if you don't have that
+2. Place files from this repo in your Sage theme
+3. Add following yarn dependencies for gutengood block components:
+```
+yarn add @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities @wordpress/icons immutability-helper tailwindcss
+```
+
+4. Run ```yarn build```
+5. Enqueue editor assets if you don't have this in your setup.php
 ```
 add_action('enqueue_block_editor_assets', function (): void {
     bundle('editor')->enqueue();
