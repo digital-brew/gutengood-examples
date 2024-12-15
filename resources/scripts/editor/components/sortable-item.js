@@ -52,7 +52,7 @@ export const SortableItem = ({id, item, fields, updateItemContent, deleteItem}) 
         >
         </Button>
       </div>
-      <div className={`${isCollapsed ? '[&>div]:hidden [&>div:first-child]:block' : ''} flex flex-col gap-4 p-4`}>
+      <div className={`${isCollapsed ? '[&>div]:hidden [&>div:first-child]:block ' : ''}w-full flex flex-col gap-4 p-4`}>
         <BlockComponents
           attributes={attributes}
           components={fields}
