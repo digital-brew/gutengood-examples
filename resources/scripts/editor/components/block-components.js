@@ -75,6 +75,7 @@ export default function BlockComponents({attributes, components, onChange, props
             key={component.name}
             label={component.label}
             help={component.help}
+            placeholder={component.placeholder}
             value={item ? item[component.name] : attributes[component.name]}
             onChange={(value) => onChange(id, component.name, value)}
           />
@@ -85,6 +86,7 @@ export default function BlockComponents({attributes, components, onChange, props
             key={component.name}
             label={component.label}
             help={component.help}
+            placeholder={component.placeholder}
             value={item ? item[component.name] : attributes[component.name]}
             onChange={(value) => onChange(id, component.name, value)}
           />
@@ -208,7 +210,7 @@ export default function BlockComponents({attributes, components, onChange, props
             help={component.help}
           >
             <LinkControl
-              searchInputPlaceholder="Search..."
+              searchInputPlaceholder={component.placeholder ?? 'Search...'}
               value={item ? item[component.name] : attributes[component.name]}
               onChange={(value) => onChange(id, component.name, value)}
               hasTextControl

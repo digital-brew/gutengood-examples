@@ -8,6 +8,10 @@
   .block-editor-link-control {
     @apply min-w-full;
 
+    .block-editor-url-input {
+      @apply min-w-full;
+    }
+
     .block-editor-link-control__search-item.is-current {
       @apply px-0;
     }
@@ -24,8 +28,8 @@
       @apply mt-0 mr-0 ml-0;
     }
 
-    .block-editor-link-control__search-input-wrapper.has-actions .components-spinner {
-      @apply top-1/2 -translate-y-2;
+    .block-editor-link-control__search-input .components-spinner.components-spinner {
+      @apply top-[21px] -translate-y-2;
     }
   }
 }
